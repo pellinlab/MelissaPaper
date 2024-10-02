@@ -1,0 +1,59 @@
+mainFolder = "~/Downloads/MELISSApaper"
+source(paste0(mainFolder,"/package/intersectionSiteObject2.R"))
+source(paste0(mainFolder,"/package/intersectionSiteObject4.R"))
+
+integrSiteObject = createEmptyIntegrSiteObject()
+integrSiteObject = setWorkingDirectory(integrSiteObject, mainFolder)
+integrSiteObject = setOrganism(integrSiteObject, "human", "analyses/data/othr/hg38_wgEncodeGencodeBasicV34_genesKNOWN_sorted.bed")
+
+dataFolder = "analyses/data/pati/"
+d2 = c("WAS2_22_WAS_Sixetal_G_.bed" ,         
+       "WAS2_22_WAS_Sixetal_Mono_.bed" ,
+       "WAS2_48_WAS_Sixetal_G_.bed" ,         
+       "WAS2_48_WAS_Sixetal_Mono_.bed" ,
+       "WAS2_78_WAS_Sixetal_G_.bed" ,         
+       "WAS2_78_WAS_Sixetal_Mono_.bed")
+d4 = c("WAS4_12_WAS_Sixetal_G_.bed" ,         
+       "WAS4_12_WAS_Sixetal_Mono_.bed" ,
+       "WAS4_36_WAS_Sixetal_G_.bed" ,         
+       "WAS4_36_WAS_Sixetal_Mono_.bed" ,
+       "WAS4_48_WAS_Sixetal_G_.bed" ,         
+       "WAS4_48_WAS_Sixetal_Mono_.bed" ,
+       "WAS4_60_WAS_Sixetal_G_.bed" ,         
+       "WAS4_60_WAS_Sixetal_Mono_.bed")
+d5 = c("WAS5_13_WAS_Sixetal_G_.bed" ,         
+       "WAS5_13_WAS_Sixetal_Mono_.bed" ,
+       "WAS5_36_WAS_Sixetal_G_.bed" ,         
+       "WAS5_36_WAS_Sixetal_Mono_.bed" ,
+       "WAS5_43_WAS_Sixetal_G_.bed" ,         
+       "WAS5_43_WAS_Sixetal_Mono_.bed" ,
+       "WAS5_55_WAS_Sixetal_G_.bed" ,         
+       "WAS5_55_WAS_Sixetal_Mono_.bed")
+d7 = c("WAS7_12_WAS_Sixetal_G_.bed" ,         
+       "WAS7_12_WAS_Sixetal_Mono_.bed" ,
+       "WAS7_30_WAS_Sixetal_G_.bed" ,         
+       "WAS7_30_WAS_Sixetal_Mono_.bed" ,
+       "WAS7_48_WAS_Sixetal_G_.bed" ,         
+       "WAS7_48_WAS_Sixetal_Mono_.bed")
+
+da = paste0(dataFolder, c(d2, d4, d5, d7))
+cv = data.frame(time = c(rep(c(22L, 48L, 78L) - 0L, each = 2),
+                         rep(c(12L, 36L, 48L, 60L) - 0L, each = 2),
+                         rep(c(13L, 36L, 43L, 55L) - 0L, each = 2),
+                         rep(c(12L, 30L, 48L) - 0L, each = 2)),
+                type = rep(c("G", "Mono"), times = sum(c(3, 4, 4, 3))),
+                pati = rep(c("W2", "W4", "W5", "W7"), times = 2 * c(3, 4, 4, 3)))
+
+integrSiteObject = setDesign(integrSiteObject, filesIntegrations = da, covariatesIntegrations = cv)
+
+result = iSiteGeneOverTarget(integrSiteObject, 
+                             idFiles = 1:length(da), 
+                             addPromoter = 1000L,
+                             selectedCovariates = c("time", "type", "pati"), 
+                             selCovAreFactors = c(F, T, T), 
+                             nminSplit = 1L,
+                             numberCores = 18L,
+                             robust = F)
+
+StoreResults(integrSiteObject, result, nameFileResult = "/analyses/results/gt_ov_was__mye.csv", storeTable = F)
+
