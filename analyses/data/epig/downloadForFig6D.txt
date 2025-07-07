@@ -1,0 +1,23 @@
+Data to be downloaded and stored in this folder to compute the plots in Figure 6D:
+
+
+
+hg19ToHg38.over.chain.gz
+
+GSM669920_BI.Bone_Marrow_Derived_Mesenchymal_Stem_Cell_Cultured_Cells.H3K4me1.59.bed.gz
+GSM669957_BI.Bone_Marrow_Derived_Mesenchymal_Stem_Cell_Cultured_Cells.H3K27me3.60.bed.gz
+GSM670019_BI.Bone_Marrow_Derived_Mesenchymal_Stem_Cell_Cultured_Cells.H3K4me3.60.bed.gz
+GSM670028_BI.Bone_Marrow_Derived_Mesenchymal_Stem_Cell_Cultured_Cells.H3K9me3.60.bed.gz
+GSM670037_BI.Bone_Marrow_Derived_Mesenchymal_Stem_Cell_Cultured_Cells.H3K36me3.58.bed.gz
+
+GSM621398_BI.Adipose_Derived_Mesenchymal_Stem_Cell_Cultured_Cells.H3K9me3.1.bed.gz
+GSM621420_BI.Adipose_Derived_Mesenchymal_Stem_Cell_Cultured_Cells.H3K27me3.1.bed.gz
+GSM772747_BI.Adipose_Derived_Mesenchymal_Stem_Cell_Cultured_Cells.H3K4me3.92.bed.gz
+GSM772748_BI.Adipose_Derived_Mesenchymal_Stem_Cell_Cultured_Cells.H3K4me1.92.bed.gz
+GSM772820_BI.Adipose_Derived_Mesenchymal_Stem_Cell_Cultured_Cells.H3K36me3.92.bed.gz
+
+GSM773041_BI.Mobilized_CD34_Primary_Cells.H3K4me3.RO_01562.bed.gz
+GSM773042_BI.Mobilized_CD34_Primary_Cells.H3K36me3.RO_01562.bed.gz
+GSM773043_BI.Mobilized_CD34_Primary_Cells.H3K4me1.RO_01562.bed.gz
+GSM773047_BI.Mobilized_CD34_Primary_Cells.H3K27me3.RO_01562.bed.gz
+GSM773049_BI.Mobilized_CD34_Primary_Cells.H3K9me3.RO_01562.bed.gz
