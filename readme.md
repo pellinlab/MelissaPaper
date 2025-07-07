@@ -1,8 +1,11 @@
 ## Code to reproduce results of paper "Modeling integration site data for safety assessment with MELISSA"
 
+#### Reproduce results paper
+Run the code in file **paper.R**. If **runAn** is set to **F** (as default), the result of the analyses is used. Otherwise the code for all analyses is runned again and the results are stored in **analuses/results**.
+
 #### Structure folder
-- **analyses**   code and data for analyses,
-- **figures**   where figures are stored,
+- **analyses**   code, data and results for analyses,
+- **figures**   folder where figures are stored,
 - **package**   implementation of MELISSA,
 - **plots**   code to produce figures paper,
 - **simulation**   code and data for simulation.
@@ -22,8 +25,8 @@ with the object **mainFolder** that is then used to construct paths to read and 
 #### Required R packages
 The R packages required are **data.table** (for most files); **stats**, **fastglm**, **statmod**, **parallel**, **glm.fit**, **brglm.fit** (to run analyses); **ggplot2** (for all plots); **annotatr**, **IRanges**, **GenomicRanges**, **vegan**, **enrichplot**, **clusterProfiler**, **ReactomePA**, **biomaRT**, **pheatmap**, **rtracklayer**, **nVenn**, **readr**, **ggtext**, **ggstance**, **purrr** (required for one or more plots).
 
-#### Reproduce Figures 2 - 7
-Run the files **fig2.R**, **fig3.R**, **fig4.R**, **fig5.R**, **fig6.R**, **fig7.R** in the **plots** folder, the output of these files are saved in the sub-folders of **figures**.
+#### Reproduce Figures 2 - 8
+Run the files **fig2.R**, **fig3.R**, **fig4.R**, **fig5.R**, **fig6.R**, **fig7.R**, **fig8.R** in the **plots** folder, the output of these files are saved in the sub-folders of **figures**.
 
 The file **fig2.R** uses the output of a simulation design that are stored in the sub-folders of **smiulation/resu**. The files **fig3.R**, **...**, **fig7.R** use data that are stored in the sub-folders of **analyses/data** and **analyses/results**. 
 
